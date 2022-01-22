@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    document.write('<h1>1. SỬ DỤNG IF</h1>')
+    document.write('<u>Cách viết code thứ 1 với IF</u>')
+    if (true) { //TRUE (Tốt nhất là viết theo cách 1
+        //Khối lệnh trong {} sẽ được thực thi
+        document.write('<p style="color: blueviolet">Khối lệnh trong IF sẽ được thực thi</p>')
+    }
+    document.write('<u>Cách 2: viết IF bỏ đi  cặp ngoặc {}</u>')
+    if (true)
+        document.write('<p style="color: blueviolet"> Viết IF khi bỏ đi phần thân {}</p>')
+    //SỬ DỤNG IF -ELSE
+    document.write('<h1>2. SỬ DỤNG IF-ELSE </h1>')
+    document.write('<u>Cách viết code thứ 1 với IF-ELSE vẫn dùng cặp ngoặc {}</u>')
+    if (false) {
+        document.write('<p style="color: blueviolet">Khối lệnh trong IF sẽ được thực thi</p>')
+    } else {
+        document.write('<p style="color: blueviolet">Khối lệnh trong ELSE sẽ được thực thi</p>')
+    }
+    //Cách viết thứ 2 bỏ đi cặp {}
+    document.write('<u>Cách viết code thứ 2 với IF-ELSE  không dùng {}</u>')
+    if (true)
+        document.write('<p style="color: blueviolet">Khối lệnh trong IF sẽ được thực thi</p>')
+    else
+        document.write('<p style="color: blueviolet">Khối lệnh trong ELSE sẽ được thực thi</p>')
+    //SỬ DỤNG IF-ELSE LỒNG NHAU
+    document.write('<h1>3. SỬ DỤNG IF-ELSE lồng nhau </h1>')
+    let a;
+    let b;
+    let c;
+    a = 2;
+    b = 3;
+    c = 4;
+    if (a > b) { //a>b;  3>1 -> false
+        if (a > c) { // a>b && a > c -> true
+            document.write('<p style="color:rebeccapurple;">' + 'Số lớn nhất là a: ' + a + '</p>')
+            // console.log("Greatest number is a = " + a);
+        } else { // b<a &&a <c
+            document.write('<p style="color:rebeccapurple;">' + 'Số lớn nhất là c: ' + c + '</p>')
+            // console.log("Greatest number is c = " + c);
+        }
+    } else { // a < b
+        if (b > c) { //fasle
+            console.log("Greatest number is b = " + b);
+        } else { //a < b && b < c
+            document.write('có đúng là đang ở trong else to không')
+            document.write('<p style="color:rebeccapurple;">' + 'Số lớn nhất là c: ' + c + '</p>')
+            // console.log("Greatest number is c = " + c);
+        }
+    }
+    document.write('<h1>4. SỬ DỤNG IF-ELSE bậc thang </h1>')
+    let score;
+    score = 85;
+    if (score >= 90.0)
+        document.write('<p style="color:rebeccapurple;">' + 'score >=90' + '</p>')
+    // console.log("A");
+    else if (score >= 80.0)
+        document.write('<p style="color:rebeccapurple;">' + 'score >=80' + '</p>')
+    // console.log("B");
+    else if (score >= 70.0)
+        console.log("C");
+    else if (score >= 60.0)
+        console.log("D");
+    else
+        console.log("F");
+    document.write('<h1>LỖI THƯỜNG GẶP #1: QUÊN DẤU NGOẶC {} </h1>')
+    let radius;
+    const PI = Math.PI;
+    radius = -5;
+    if (radius >= 0) { // Lưu ý đoạn code cần phải có cặp ngoặc {}
+        area = radius * radius * PI;
+        document.write('<p>' + 'Diện tích là: ' + area + '</p>')
+    } else {
+        document.write('<p>Bán kính phải là số dương:</p>')
+    }
+    document.write('<h1>LỖI THƯỜNG GẶP #2: Viết dấu ; vào sau () codition của if</h1>')
+    if (radius >= 0) ; //FALSE
+    { // Lưu ý đoạn code cần phải có cặp ngoặc {}
+        area = radius * radius * PI;
+        document.write('<p style="color: brown">' + 'Diện tích là: ' + area + '</p>')
+    }
+    // else {
+    //     document.write('<p>Bán kính phải là số dương:</p>')
+    // }
+    document.write('<h1>LỖI THƯỜNG GẶP #3: So sánh giá trị boolean</h1>')
+    let event = true;
+    if (event) {
+        document.write('<p style="color: brown">Event là số chẵn</p>')
+    }
+    document.write('<h1>LỖI THƯỜNG GẶP #4: Nhầm lẫn khối if -else</h1>')
+    let i;
+    let j;
+    let k;
+    i = 3;
+    j = 2;
+    k = 4;
+    if (i > j) //true
+        if (i > k) //false
+            document.write('<p style="color: brown">Vào if nhỏ</p>')
+        else
+            document.write('<p style="color: brown">Vào trong else</p>')
+    document.write('<h1>LỖI THƯỜNG GẶP #5: So sánh số thực</h1>')
+    let x = 1.0 - 0.1 - 0.1 - 0.1 - 0.1 - 0.1; //x = 0.5;
+    console.log('SO SÁNH --> ', x == 0.5)
+    document.write('<p>' + 'giá trị của x là: ' + x + '</p>')
+    //Cách sử lý khi cần so sánh số thực
+    const EPSILON = 1E-14;
+    console.log('CHECK SO SANH = ', Math.abs(x - 0.5) < EPSILON)
+    if (Math.abs(x - 0.5) < EPSILON)
+        console.log(x + " is approximately 0.5");
+    document.write('<h1>LỖI THƯỜNG GẶP #6: Gán giá trị boolean</h1>')
+    let number;
+    let even1;
+    number = 6;
+    if (number % 2 == 0)
+        even1 = true;
+    else
+        even1 = false;
+    console.log('event1 == ', even1)
+    //VIẾT CLEAN CODE
+    let even2 = number % 2 == 0;
+    console.log('event2', even2)
+    document.write('<h1>LỖI THƯỜNG GẶP #7: Lặp code hay thừa code</h1>')
+    let inState = true;
+    if (inState) {
+        tuition = 5000;
+        // document.write('<p style="color: blue">'+'giá trị của tuition'+tuition+'</p>')
+    } else {
+        tuition = 15000;
+        // document.write('<p style="color: brown">'+'giá trị của tuition'+tuition+'</p>')
+        // console.log("The tuition is " + tuition);
+    }
+    document.write('<p style="color: brown">' + 'giá trị của tuition' + tuition + '</p>')
+    document.write('<h1>SWITCH - CASE</h1>')
+    let level;
+    level = 88;
+    switch (level) {
+
+        case 0:
+            //Tính thuế cho thu nhập đến 5tr
+            document.write('<p>Tính thuế cho thu nhập đến 5 tr</p>')
+        break;
+        case 1:
+            //Tính thuế cho thu nhập từ 5tr đến 10tr
+            document.write('<p>Tính thuế cho thu nhập đến 5 tr - 10 tr</p>')
+        break;
+        case 2:
+            //Tính thuế cho thu nhập từ 10tr đến 18tr
+            document.write('<p>Tính thuế cho thu nhập đến 10tr-18tr</p>')
+            break;
+        case 3:
+            //Tính thuế cho thu nhập từ 18tr đến 32tr
+            document.write('<p>Tính thuế cho thu nhập đến 18 tr -32tr</p>')
+            break;
+        default:
+            //Không hợp lệ
+            document.write('<p style="color: red">Default thực thi</p>')
+            // break;
+    }
+    document.write('<h1>TOÁN TỬ 3 NGÔI</h1>')
+    let number1;
+    let number2;
+    number1 = 5; //TH1: đk -> true --> Nhận giá trị sau dấu ?: maxValue = number1 = 5
+    number2 = 4;  //TH 2: Dk -> false --> Nhận giá trị sau dấu : --> maxValue = number2 = 5;
+    let maxValue = number1 > number2 ? number1 : number2;
+    console.log('maxValue === ', maxValue)
+</script>
